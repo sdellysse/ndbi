@@ -106,8 +106,11 @@ Object.assign(Ndbi.prototype, {
             if (driverOptions == null) {
                 driverOptions = {};
             }
-
-            return driver.execute(sql, params, driverOptions);
+            if (driver.execute) {
+                return driver.execute(sql, params, driverOptions);
+            } else {
+                return this.query(sql, params, driverOptions);
+            }
         })
         ;
     },
@@ -155,7 +158,16 @@ Object.assign(Ndbi.prototype, {
                 driverOptions = {};
             }
 
-            return driver.query(sql, params, driverOptions);
+            if (driver.query) {
+                return driver.query(sql, params, driverOptions);
+            } else {
+                return driver.prepare(sql, driverOptions)
+                .then(stmt => {
+                    stmt.execute(params);
+                    return stmt;
+                })
+                ;
+            }
         })
         ;
     },
