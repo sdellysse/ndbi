@@ -5,7 +5,9 @@ Perl's `DBI` module and PHP's `PDO` module. It is written with ES8 async/await
 in mind, while providing a common set of function interfaces for all supported
 database types, and it is easy to implement new drivers as needed.
 
-Examples:
+# Usage Examples
+
+Basic Usage:
 
 ```javascript
     const Ndbi = require("ndbi");
@@ -22,6 +24,23 @@ Examples:
         }
 
         await ndbi.disconnect();
+    }
+```
+
+Transactions:
+
+```javascript
+    const Ndbi = require("ndbi");
+    
+    async function main() {
+        const ndbi = new Ndbi("postgres:host=localhost;database=test");
+        
+        await ndbi.connect();
+        await ndbi.transaction(async function () {
+            await ndbi.execute("CREATE TABLE foo(name TEXT)");
+            await ndbi.execute("INSERT INTO foo SELECT bar FROM baz");
+            await ndbi.execute("DROP TABLE baz");
+        });
     }
 ```
 
