@@ -1,8 +1,8 @@
 {
   "name": "ndbi",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-      "ndbi-driver-manager": "0.1.0"
+      "ndbi-driver-manager": "0.1.1"
   }
 }
