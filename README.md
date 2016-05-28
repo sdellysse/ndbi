@@ -10,7 +10,6 @@ Examples:
 ```javascript
     const Ndbi = require("ndbi");
     async function main() {
-
         const ndbi = new Ndbi("postgres:host=localhost;database=test");
         await ndbi.connect();
 
