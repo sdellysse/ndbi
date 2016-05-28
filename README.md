@@ -43,7 +43,7 @@ conform to the specifications below.
 
 |Method Name|Required?|Signature|Description|
 |---|---|---|---|
-|`[[constructor]]`|`new Driver(dsn: string, username:string|null, password:string|null, options:Object)`|Constructor|
+|`[[constructor]]`|Y|`new Driver(dsn: string, username:string|null, password:string|null, options:Object)`|Constructor|
 |`beginTransaction`|N|`driver.beginTransaction(): Promise<undefined>`|Puts driver into transaction mode. If this method is omitted it is polyfilled with `execute`.|
 |`commit`|N|`driver.commit(): Promise<undefined>`|Commits the current transaction. If method is omitted it is polyfilled with `execute`.|
 |`connect`|Y|`driver.connect(): Promise<undefined>`|Connects to the database and updates driver instance state.|
