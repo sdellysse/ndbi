@@ -8,8 +8,8 @@ database types, and it is easy to implement new drivers as needed.
 Examples:
 
 ```javascript
+    const Ndbi = require("ndbi");
     async function main() {
-        const Ndbi = require("ndbi");
 
         const ndbi = new Ndbi("postgres:host=localhost;database=test");
         await ndbi.connect();
