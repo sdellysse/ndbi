@@ -1,6 +1,6 @@
 {
   "name": "ndbi",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -10,6 +10,5 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-      "ndbi-driver-manager": "0.1.1"
   }
 }

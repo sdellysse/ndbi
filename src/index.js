@@ -1,9 +1,11 @@
 "use strict";
 
-const DriverManager = require("ndbi-driver-manager");
+const DriverManager = require("./driver-manager");
+const DriverNotInstalledError = require("./errors/driver-not-installed-error");
 const InvalidDsnError = require("./errors/invalid-dsn-error");
 const InvalidPasswordError = require("./errors/invalid-password-error");
 const InvalidUsernameError = require("./errors/invalid-username-error");
+const UnknownDriverError = require("./errors/unknown-driver-error");
 
 const Ndbi = function (dsn, username, password, options) {
     if (typeof dsn !== "string") {
@@ -38,12 +40,15 @@ const Ndbi = function (dsn, username, password, options) {
 };
 
 Object.assign(Ndbi, {
+    DriverManager,
     driverManager: new DriverManager(),
 
     errors: {
+        DriverNotInstalledError,
         InvalidDsnError,
         InvalidPasswordError,
         InvalidUsernameError,
+        UnknownDriverError,
     },
 });
 
